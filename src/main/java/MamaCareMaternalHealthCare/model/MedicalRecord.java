@@ -1,6 +1,7 @@
 package MamaCareMaternalHealthCare.model;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,8 +15,8 @@ import jakarta.persistence.Table;
 @Table(name = "medical_record")
 public class MedicalRecord {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
     private String diagnosis;
     private String prescription;
     private LocalDateTime recordDate;
@@ -29,10 +30,10 @@ public class MedicalRecord {
     private User doctor;
 
     // Getters and Setters
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
-    public void SetId(Long id){
+    public void setId(UUID id){
         this.id = id;
     }
     public String getDiagnosis() {

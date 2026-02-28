@@ -1,5 +1,6 @@
 package MamaCareMaternalHealthCare.model;
 
+import java.util.UUID;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
@@ -17,8 +18,8 @@ import jakarta.persistence.Table;
 
 public class Appointment {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
 
     private LocalDateTime appointmentDateTime;
 
@@ -37,10 +38,10 @@ public class Appointment {
     private User doctor;
 
     // Getters and Setters
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
     public LocalDateTime getAppointmentDateTime() {

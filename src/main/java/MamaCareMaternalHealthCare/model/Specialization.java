@@ -3,6 +3,7 @@ package MamaCareMaternalHealthCare.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import java.util.UUID;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,18 +15,18 @@ import jakarta.persistence.Table;
 @Table(name="specialization")
 public class Specialization {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
     private String name;
 
     @ManyToMany(mappedBy = "specializations")
     private Set<User> doctors = new HashSet<>();
 
     // Getters and Setters
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
     public String getName() {
