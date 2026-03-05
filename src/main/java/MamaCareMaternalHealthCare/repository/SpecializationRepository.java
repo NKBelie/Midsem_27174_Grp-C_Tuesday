@@ -2,6 +2,7 @@ package MamaCareMaternalHealthCare.repository;
 
 import java.util.UUID;
 import java.util.Optional;
+import java.util.List;
 
 import org.springframework.stereotype.Repository;
 import MamaCareMaternalHealthCare.model.Specialization;
@@ -11,4 +12,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface SpecializationRepository extends JpaRepository<Specialization, UUID> {
 
     Optional<Specialization> findByName(String name);
+    List<Specialization> findByNameStartsWith(String name);
+    Boolean existsByName(String name);
+
 }

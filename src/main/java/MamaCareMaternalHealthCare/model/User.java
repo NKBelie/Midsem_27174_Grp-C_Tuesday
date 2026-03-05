@@ -16,12 +16,8 @@ import jakarta.persistence.JoinTable;
 import java.util.Set;
 import java.util.HashSet;
 
-
-
-
 @Entity
-@Table (name="user")
-
+@Table (name="users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,8 +47,8 @@ public class User {
     //Doctor Many to Many Specialization
     @ManyToMany
     @JoinTable(
-        name = "doctorspecialization",
-        joinColumns = @JoinColumn(name = "user_id", unique = true),
+        name = "doctor_specialization",
+        joinColumns = @JoinColumn(name = "user_id"),
         inverseJoinColumns = @JoinColumn(name = "specialization_id")
     )
     private Set<Specialization> specializations = new HashSet<>();
