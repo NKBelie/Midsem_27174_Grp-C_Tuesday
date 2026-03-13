@@ -19,7 +19,6 @@ import java.util.HashSet;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
 @Entity
 @Table (name="users")
 public class User {
@@ -60,7 +59,8 @@ public class User {
     private Set<Specialization> specializations = new HashSet<>();
 
     // Getters and Setters
-   public Long getId() {
+
+    public Long getId() {
         return id;
     }
     public void setId(Long id) {

@@ -50,7 +50,6 @@ public class AppointmentService {
     public Page<Appointment> getAppointmentsPagination(Pageable pageable){
         return appointmentRep.findAll(pageable);
     }
-
     public List<Appointment> getAppointmentsSorted(String field){
         return appointmentRep.findAll(Sort.by(Sort.Direction.ASC, field));
     }

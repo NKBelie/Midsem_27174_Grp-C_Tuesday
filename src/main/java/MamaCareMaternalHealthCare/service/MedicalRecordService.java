@@ -43,6 +43,8 @@ public class MedicalRecordService {
     public List<MedicalRecord> getMedicalRecordsSorted(String field){
        return medicalRecordRepository.findAll(Sort.by(Sort.Direction.ASC, field));
     }
+
+
     // Get All Medical Records
     public List<MedicalRecord> getAllMedicalRecords(){
         return medicalRecordRepository.findAll();
