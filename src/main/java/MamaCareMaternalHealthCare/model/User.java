@@ -16,6 +16,10 @@ import jakarta.persistence.JoinTable;
 import java.util.Set;
 import java.util.HashSet;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
 @Entity
 @Table (name="users")
 public class User {
@@ -28,6 +32,7 @@ public class User {
     @Column(unique = true)
     private String email;
 
+    @JsonIgnore
     private String password;
 
     @Enumerated(EnumType.STRING)
@@ -42,6 +47,7 @@ public class User {
 
     // one user to one profile
     @OneToOne(mappedBy = "user")
+    @JsonManagedReference
     private Profile profile;
 
     //Doctor Many to Many Specialization

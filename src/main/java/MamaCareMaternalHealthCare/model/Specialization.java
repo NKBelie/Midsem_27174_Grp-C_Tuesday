@@ -2,8 +2,10 @@ package MamaCareMaternalHealthCare.model;
 
 import java.util.HashSet;
 import java.util.Set;
-
 import java.util.UUID;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,6 +22,7 @@ public class Specialization {
     private String name;
 
     @ManyToMany(mappedBy = "specializations")
+    @JsonIgnore
     private Set<User> doctors = new HashSet<>();
 
     // Getters and Setters
