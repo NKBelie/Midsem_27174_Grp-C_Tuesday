@@ -5,7 +5,10 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+<<<<<<< HEAD
 import org.springframework.data.domain.Pageable;
+=======
+>>>>>>> a2470a44733f71f8e08a7236f5259ae3a3616b11
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -60,6 +63,7 @@ public class AppointmentController {
         return ResponseEntity.ok(
                 appointmentService.deleteAppointmentById(id));
     }
+<<<<<<< HEAD
     @GetMapping("/pagination")
     public ResponseEntity<?> getAppointments(Pageable pageable){
         return ResponseEntity.ok(
@@ -71,5 +75,7 @@ public class AppointmentController {
         return ResponseEntity.ok(
                appointmentService.getAppointmentsSorted(field));
     }
+=======
+>>>>>>> a2470a44733f71f8e08a7236f5259ae3a3616b11
 
 }

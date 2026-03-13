@@ -16,10 +16,13 @@ import jakarta.persistence.JoinTable;
 import java.util.Set;
 import java.util.HashSet;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+=======
+>>>>>>> a2470a44733f71f8e08a7236f5259ae3a3616b11
 @Entity
 @Table (name="users")
 public class User {

@@ -12,8 +12,11 @@ import MamaCareMaternalHealthCare.model.User;
 import MamaCareMaternalHealthCare.repository.UserRepository;
 
 import java.util.Optional;
+<<<<<<< HEAD
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+=======
+>>>>>>> a2470a44733f71f8e08a7236f5259ae3a3616b11
 
 import MamaCareMaternalHealthCare.model.EUserType;
 

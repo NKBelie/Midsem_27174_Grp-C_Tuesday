@@ -6,8 +6,11 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+<<<<<<< HEAD
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+=======
+>>>>>>> a2470a44733f71f8e08a7236f5259ae3a3616b11
 import org.springframework.web.bind.annotation.*;
 
 import MamaCareMaternalHealthCare.model.MedicalRecord;
@@ -77,6 +80,7 @@ public class MedicalRecordController {
     public String deleteMedicalRecord(@PathVariable UUID id){
         return medicalRecordService.deleteMedicalRecord(id);
     }
+<<<<<<< HEAD
     @GetMapping("/pagination")
     public ResponseEntity<?> getMedicalRecords(Pageable pageable){
         return ResponseEntity.ok(medicalRecordService.getMedicalRecordsPagination(pageable));
@@ -86,4 +90,6 @@ public class MedicalRecordController {
     public ResponseEntity<?> sortMedicalRecords(@PathVariable String field){
         return ResponseEntity.ok(medicalRecordService.getMedicalRecordsSorted(field));
     }
+=======
+>>>>>>> a2470a44733f71f8e08a7236f5259ae3a3616b11
 }

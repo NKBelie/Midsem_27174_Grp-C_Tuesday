@@ -4,7 +4,10 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+<<<<<<< HEAD
 import org.springframework.data.domain.Pageable;
+=======
+>>>>>>> a2470a44733f71f8e08a7236f5259ae3a3616b11
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -79,6 +82,7 @@ public class UserController {
         String message = userService.deleteUser(id);
         return ResponseEntity.ok(message);
     }
+<<<<<<< HEAD
     @GetMapping("/pagination")
     public ResponseEntity<?> getUsers(Pageable pageable){
         return ResponseEntity.ok(
@@ -90,4 +94,6 @@ public class UserController {
         return ResponseEntity.ok(
             userService.getUsersSorted(field));
     }
+=======
+>>>>>>> a2470a44733f71f8e08a7236f5259ae3a3616b11
 }

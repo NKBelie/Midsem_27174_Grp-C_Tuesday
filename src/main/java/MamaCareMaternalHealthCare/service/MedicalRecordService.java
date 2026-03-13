@@ -6,9 +6,12 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+<<<<<<< HEAD
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+=======
+>>>>>>> a2470a44733f71f8e08a7236f5259ae3a3616b11
 import org.springframework.stereotype.Service;
 
 import MamaCareMaternalHealthCare.model.MedicalRecord;
@@ -36,6 +39,7 @@ public class MedicalRecordService {
         medicalRecordRepository.save(medicalRecord);
         return "Medical Record added successfully";
     }
+<<<<<<< HEAD
     public Page<MedicalRecord> getMedicalRecordsPagination(Pageable pageable){
         return medicalRecordRepository.findAll(pageable);
     }
@@ -43,6 +47,9 @@ public class MedicalRecordService {
     public List<MedicalRecord> getMedicalRecordsSorted(String field){
        return medicalRecordRepository.findAll(Sort.by(Sort.Direction.ASC, field));
     }
+=======
+
+>>>>>>> a2470a44733f71f8e08a7236f5259ae3a3616b11
     // Get All Medical Records
     public List<MedicalRecord> getAllMedicalRecords(){
         return medicalRecordRepository.findAll();
