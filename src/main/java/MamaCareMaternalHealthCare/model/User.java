@@ -13,8 +13,8 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.JoinTable;
-import java.util.Set;
-import java.util.HashSet;
+import java.util.List;
+import java.util.ArrayList;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -53,10 +53,10 @@ public class User {
     @ManyToMany
     @JoinTable(
         name = "doctor_specialization",
-        joinColumns = @JoinColumn(name = "user_id"),
+        joinColumns = @JoinColumn(name = "doctor_id"),
         inverseJoinColumns = @JoinColumn(name = "specialization_id")
     )
-    private Set<Specialization> specializations = new HashSet<>();
+    private List<Specialization> specializations = new ArrayList<>();
 
     // Getters and Setters
 
@@ -108,10 +108,10 @@ public class User {
     public void setProfile(Profile profile) {
         this.profile = profile;
     }
-    public Set<Specialization> getSpecializations() {
+    public List<Specialization> getSpecializations() {
         return specializations;
     }
-    public void setSpecializations(Set<Specialization> specializations) {
+    public void setSpecializations(List<Specialization> specializations) {
         this.specializations = specializations;
     }
 

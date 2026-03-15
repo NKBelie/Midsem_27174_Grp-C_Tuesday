@@ -2,14 +2,15 @@ package MamaCareMaternalHealthCare.service;
 
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 
 import org.springframework.stereotype.Service;
 
-import MamaCareMaternalHealthCare.model.User;
-import MamaCareMaternalHealthCare.repository.UserRepository;
+import MamaCareMaternalHealthCare.model.*;
+import MamaCareMaternalHealthCare.repository.*;
 
 import java.util.Optional;
 import org.springframework.data.domain.Pageable;
@@ -19,9 +20,19 @@ import MamaCareMaternalHealthCare.model.EUserType;
 
 @Service
 public class UserService {
+    @Autowired
+    private SpecializationRepository specializationRepository;
 
     @Autowired
     private UserRepository userRepository;
+
+    public User saveDoctor(User doctor){
+        List<UUID> specializationId = doctor.getSpecializations().stream().map(s -> s.getId()).toList();
+        List<Specialization> specializations =
+             specializationRepository.findAllById(specializationId);
+        doctor.setSpecializations(specializations);
+        return userRepository.save(doctor);
+    }
 
     public User saveUser(User user) {
         if(userRepository.existsByEmail(user.getEmail())) {

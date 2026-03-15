@@ -1,8 +1,8 @@
 package MamaCareMaternalHealthCare.model;
 
-import java.util.HashSet;
-import java.util.Set;
+//import java.util.Set;
 import java.util.UUID;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -22,8 +22,8 @@ public class Specialization {
     private String name;
 
     @ManyToMany(mappedBy = "specializations")
+    private List<User> doctors;
     @JsonIgnore
-    private Set<User> doctors = new HashSet<>();
 
     // Getters and Setters
     public UUID getId() {
@@ -38,13 +38,19 @@ public class Specialization {
     public void setName(String name) {
         this.name = name;
     }
-
+    public List<User> getDoctors() {
+        return doctors;
+    }
+    public void setDoctors(List<User> doctors) {
+        this.doctors = doctors;
+    }
+    
     @ManyToMany(mappedBy = "specializations")
-    private Set<User> users;
-    public Set<User> getUsers() {
+    private List<User> users;
+    public List<User> getUsers() {
         return users;
     }
-    public void setUsers(Set<User> users) {
+    public void setUsers(List<User> users) {
         this.users = users;
     }
 
