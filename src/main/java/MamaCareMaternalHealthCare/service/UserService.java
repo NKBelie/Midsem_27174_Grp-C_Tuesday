@@ -69,6 +69,22 @@ public class UserService {
             throw new RuntimeException("User with email " + email + " not found.");
         }
     }
+    public List<User> userByLocation(Location location){
+        List<User> user = userRepository.findByLocation(location);
+        if(!user.isEmpty()){
+            return userRepository.findByLocation(location).stream().toList();
+        }else{
+            throw new RuntimeException("User not found with location: " + location);
+        }
+    }
+    public List<User> userByFullName(String fullName){
+        List<User> user = userRepository.findByFullName(fullName);
+        if(!user.isEmpty()){
+            return userRepository.findByFullName(fullName).stream().toList();
+        }else{
+            throw new RuntimeException("User not found with full name: " + fullName);
+        }
+    }
     public Optional<User> findByEmailAndPassword(String email, String password) {
         List<User> user = userRepository.findByEmailAndPassword(email, password);
         if (!user.isEmpty()) {

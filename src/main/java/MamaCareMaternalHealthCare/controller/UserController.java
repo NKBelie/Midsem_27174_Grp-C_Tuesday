@@ -6,7 +6,14 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import MamaCareMaternalHealthCare.model.EUserType;
 import MamaCareMaternalHealthCare.model.User;
@@ -54,6 +61,16 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
 
+    @GetMapping("/fullName/{fullName}")
+    public ResponseEntity<?> getUsersByFullName(@PathVariable String fullName){
+        List<User> users = userService.userByFullName(fullName);
+        return ResponseEntity.ok(users);
+    }
+    @GetMapping("/fullNameAndRole/{fullName}/role{role}")
+    public ResponseEntity<?> getUsersByFullNameAndRole(@RequestBody User user){
+        List<User> users = userService.userByFullNameAndRole(user.getFullName(), user.getRole());
+        return ResponseEntity.ok(users);
+    }
     // Login
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody User user){
