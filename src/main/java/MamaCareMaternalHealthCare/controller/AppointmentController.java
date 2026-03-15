@@ -60,6 +60,7 @@ public class AppointmentController {
         return ResponseEntity.ok(
                 appointmentService.deleteAppointmentById(id));
     }
+   
     @GetMapping("/pagination")
     public ResponseEntity<?> getAppointments(Pageable pageable){
         return ResponseEntity.ok(

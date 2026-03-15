@@ -9,7 +9,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-
 import MamaCareMaternalHealthCare.model.Appointment;
 import MamaCareMaternalHealthCare.model.User;
 import MamaCareMaternalHealthCare.repository.AppointmentRepository;
@@ -50,10 +49,10 @@ public class AppointmentService {
     public Page<Appointment> getAppointmentsPagination(Pageable pageable){
         return appointmentRep.findAll(pageable);
     }
+
     public List<Appointment> getAppointmentsSorted(String field){
         return appointmentRep.findAll(Sort.by(Sort.Direction.ASC, field));
     }
-
     // Get all appointments
     public List<Appointment> getAllAppointments() {
         return appointmentRep.findAll();

@@ -86,4 +86,5 @@ public class MedicalRecordController {
     public ResponseEntity<?> sortMedicalRecords(@PathVariable String field){
         return ResponseEntity.ok(medicalRecordService.getMedicalRecordsSorted(field));
     }
+
 }

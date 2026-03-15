@@ -10,7 +10,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-
 import MamaCareMaternalHealthCare.model.MedicalRecord;
 import MamaCareMaternalHealthCare.model.User;
 import MamaCareMaternalHealthCare.repository.MedicalRecordRepository;
@@ -41,10 +40,8 @@ public class MedicalRecordService {
     }
 
     public List<MedicalRecord> getMedicalRecordsSorted(String field){
-       return medicalRecordRepository.findAll(Sort.by(Sort.Direction.ASC, field));
+        return medicalRecordRepository.findAll(Sort.by(Sort.Direction.ASC, field));
     }
-
-
     // Get All Medical Records
     public List<MedicalRecord> getAllMedicalRecords(){
         return medicalRecordRepository.findAll();
@@ -89,7 +86,6 @@ public class MedicalRecordService {
             MedicalRecord record = existingRecord.get();
 
             record.setDiagnosis(updatedRecord.getDiagnosis());
-            //record.setTreatment(updatedRecord.getTreatment());
             record.setRecordDate(updatedRecord.getRecordDate());
 
             medicalRecordRepository.save(record);
@@ -100,7 +96,7 @@ public class MedicalRecordService {
         }
     }
 
-    // Delete Medical Record
+    //  Delete Medical Record
     public String deleteMedicalRecord(UUID id){
 
         Optional<MedicalRecord> existingRecord = medicalRecordRepository.findById(id);
